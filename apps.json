@@ -1,0 +1,14 @@
+{
+    "apps":[
+        {
+            "name":"Web Search",
+            "url":"https://easrng.github.io/webdesk/search.html",
+            "icon":"search"
+        },
+        {
+            "name":"All Apps",
+            "url":"https://easrng.github.io/webdesk/apps.html",
+            "icon":"apps"
+        }
+    ]
+}
