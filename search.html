@@ -12,7 +12,7 @@
             var results = document.getElementById("results");
             result.parent.className = "mdl-card mdl-shadow--2dp loading";
             fetch("https://cors.io/?https://www.googleapis.com/customsearch/v1?q=" + q + "&cx=011622709732013514528%3Arueyyi-o2ik&key=AIzaSyAE6JZJOcy14CEpAPUBDOCLOS7ePiPiKHk").then(j => j.json()).then(function(r) {
-                result.parent.className = "mdl-card mdl-shadow--2dp";
+                result.parent.className = "mdl-card mdl-shadow--2dp noload";
                 r.items.forEach(function(item) {
                     results.innerHTML += ('<article class="result"><h1>' + item.htmlTitle + '</h1><a href="' + item.link + '">' + item.htmlFormattedUrl + '</a><p>' + item.htmlSnippet + '</p></article>')
                 });
@@ -34,8 +34,14 @@
             flex-direction: column;
             align-items: center;
         }
-
-        .demo-card {}
+        
+        .noload .mdl-progress{
+            display:none;
+        }
+        
+        .loading .mdl-progress{
+            display:block;
+        }
 
         .mdl-card {
             margin-top: 3em;
@@ -52,7 +58,8 @@
             </div>
         </div>
     </div>
-    <div class="mdl-card mdl-shadow--2dp">
+    <div class="mdl-card mdl-shadow--2dp noload">
+        <div class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
         <div id="results" class="mdl-card__supporting-text"></div>
     </div>
 </body>
