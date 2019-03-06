@@ -7,23 +7,6 @@
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>Web Search</title>
-    <script>
-        function search(q) {
-            var results = document.getElementById("results");
-            result.parent.className = "mdl-card mdl-shadow--2dp loading";
-            fetch("https://cors.io/?https://www.googleapis.com/customsearch/v1?q=" + q + "&cx=011622709732013514528%3Arueyyi-o2ik&key=AIzaSyAE6JZJOcy14CEpAPUBDOCLOS7ePiPiKHk").then(j => j.json()).then(function(r) {
-                result.parent.className = "mdl-card mdl-shadow--2dp noload";
-                r.items.forEach(function(item) {
-                    results.innerHTML += ('<article class="result"><h1>' + item.htmlTitle + '</h1><a href="' + item.link + '">' + item.htmlFormattedUrl + '</a><p>' + item.htmlSnippet + '</p></article>')
-                });
-            });
-        }
-        document.querySelector("#searchbox").addEventListener("keyup", function(event) {
-            if (event.key === "Enter") {
-                search(document.querySelector("#searchbox").value);
-            }
-        });
-    </script>
     <style>
         #search {
             min-height: 0;
@@ -62,6 +45,23 @@
         <div class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
         <div id="results" class="mdl-card__supporting-text"></div>
     </div>
+        <script>
+        function search(q) {
+            var results = document.getElementById("results");
+            result.parent.className = "mdl-card mdl-shadow--2dp loading";
+            fetch("https://cors.io/?https://www.googleapis.com/customsearch/v1?q=" + q + "&cx=011622709732013514528%3Arueyyi-o2ik&key=AIzaSyAE6JZJOcy14CEpAPUBDOCLOS7ePiPiKHk").then(j => j.json()).then(function(r) {
+                result.parent.className = "mdl-card mdl-shadow--2dp noload";
+                r.items.forEach(function(item) {
+                    results.innerHTML += ('<article class="result"><h1>' + item.htmlTitle + '</h1><a href="' + item.link + '">' + item.htmlFormattedUrl + '</a><p>' + item.htmlSnippet + '</p></article>')
+                });
+            });
+        }
+        document.querySelector("#searchbox").addEventListener("keyup", function(event) {
+            if (event.key === "Enter") {
+                search(document.querySelector("#searchbox").value);
+            }
+        });
+    </script>
 </body>
 
 </html>
