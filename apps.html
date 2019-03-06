@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>All Apps</title>
+  <style>
+    .result>a {
+      color: #000000b3;
+    }
+
+    .result h1 {
+      color: #000;
+      display: block;
+      padding: 16px;
+      -webkit-perspective-origin: 165px 56px;
+      perspective-origin: 165px 56px;
+      -webkit-transform-origin: 165px 56px;
+      transform-origin: 165px 56px;
+      box-sizing: border-box;
+      font-size: 16px;
+      margin: 0;
+    }
+
+    #search {
+      min-height: 0;
+      background-color: aliceblue;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .noload .mdl-progress {
+      display: none;
+    }
+
+    .loading .mdl-progress {
+      display: block;
+    }
+
+    .mdl-card {
+      margin-top: 3em;
+    }
+
+    .hidden {
+      display:none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="mdl-card mdl-shadow--2dp noload hidden">
+    <div class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+    <div id="results"></div>
+  </div>
+  <script>
+      var results = document.getElementById("results");
+      results.parentElement.className = "mdl-card mdl-shadow--2dp loading";
+      fetch("apps.json").then(j => j.json()).then(function(r) {
+        results.parentElement.className = "mdl-card mdl-shadow--2dp noload";results.innerHTML="";
+        r.items.forEach(function(item) {
+          results.innerHTML += ('<article class="result mdl-card__supporting-text mdl-card--border"><button onclick="window.parent.newWindow("'+item.name+'","'+item.link+'")" class="mdl-button mdl-js-button mdl-js-ripple-effect"><h1><i class="material-icons">'+item.icon+'</i>' + item.name + '</h1></button></article>')
+        });
+      });
+  </script>
+</body>
+
+</html>
