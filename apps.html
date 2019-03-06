@@ -65,7 +65,7 @@
       fetch("apps.json").then(j => j.json()).then(function(r) {
         results.parentElement.className = "mdl-card mdl-shadow--2dp noload";results.innerHTML="";
         r.apps.forEach(function(item) {
-          results.innerHTML += ('<article class="result mdl-card__supporting-text mdl-card--border"><button onclick="window.parent.newWindow(\''+item.name+'\',\''+item.link+'\')" class="mdl-button mdl-js-button mdl-js-ripple-effect"><h1><i class="material-icons">'+item.icon+'</i>' + item.name + '</h1></button></article>')
+          results.innerHTML += ('<article class="result mdl-card__supporting-text mdl-card--border"><button onclick="window.parent.newWindow(\''+item.name+'\',\''+item.url+'\')" class="mdl-button mdl-js-button mdl-js-ripple-effect"><h1><i class="material-icons">'+item.icon+'</i>' + item.name + '</h1></button></article>')
         });
       });
   </script>
