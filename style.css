@@ -12,8 +12,18 @@
 .win .title *{
     margin:0;
 }
+.win .title {
+	width: 100%;
+	height: 2.5em;
+}
 .win .title .title-text{
     padding: 0.5em;
+}
+.win .title .buttons {
+	float: right;
+}
+.win .title .title-text {
+    float: left;
 }
 .win iframe {
     height: calc(100% - 3em);
