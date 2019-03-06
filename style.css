@@ -5,9 +5,15 @@
 }
 
 .win .title {
-    padding: 0.5em;
     background-color: #1E88E5;
     color: #ffffff;
+    padding:0;
+}
+.win .title *{
+    margin:0;
+}
+.win .title .title-text{
+    padding: 0.5em;
 }
 .win iframe {
     height: calc(100% - 3em);
