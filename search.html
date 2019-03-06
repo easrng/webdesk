@@ -10,6 +10,7 @@
     <style>
         #search {
             min-height: 0;
+            background-color:aliceblue;
         }
 
         body {
@@ -48,9 +49,9 @@
         <script>
         function search(q) {
             var results = document.getElementById("results");
-            result.parent.className = "mdl-card mdl-shadow--2dp loading";
+            results.parent.className = "mdl-card mdl-shadow--2dp loading";
             fetch("https://cors.io/?https://www.googleapis.com/customsearch/v1?q=" + q + "&cx=011622709732013514528%3Arueyyi-o2ik&key=AIzaSyAE6JZJOcy14CEpAPUBDOCLOS7ePiPiKHk").then(j => j.json()).then(function(r) {
-                result.parent.className = "mdl-card mdl-shadow--2dp noload";
+                results.parent.className = "mdl-card mdl-shadow--2dp noload";
                 r.items.forEach(function(item) {
                     results.innerHTML += ('<article class="result"><h1>' + item.htmlTitle + '</h1><a href="' + item.link + '">' + item.htmlFormattedUrl + '</a><p>' + item.htmlSnippet + '</p></article>')
                 });
