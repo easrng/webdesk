@@ -23,11 +23,11 @@ function newWindow(title, url) {
    $buttons.children(".max").click(
         function (e){
             var win=this.parent().parent().parent();
-            if(win.restore){
-                win.css(win.restore);
-                win.restore=null;
+            if(windows[0].attr("data-restore")){
+                win.css(JSON.parse(windows[0].attr("data-restore")));
+                windows[0].attr("data-restore","")
             } else {
-                win.restore=win.position();win.restore.width=win.width();win.restore.height=win.height;
+                windows[0].attr("data-restore",JSON.stringify(win.position();win.restore.width=win.width();win.restore.height=win.height));
                 win.width($("body").width()).height($("body").height()).css({top:0,left:0});
             }
         }
