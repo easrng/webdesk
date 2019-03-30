@@ -11,5 +11,5 @@ function newWindow(title, url) {
         windows[currentid].resizable();
     $($(".win .close")[currentid]).click(function (e){
         this.parent().parent().parent().remove()
-    }.bind($($(".win .close")[currentid]))
+    }.bind($($(".win .close")[currentid])))
 }
