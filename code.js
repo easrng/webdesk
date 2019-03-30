@@ -27,7 +27,7 @@ function newWindow(title, url) {
                 win.css(win.restore);
                 win.restore=null;
             } else {
-                win.restore=win.positon();win.restore.width=win.width();win.restore.height=win.height;
+                win.restore=win.position();win.restore.width=win.width();win.restore.height=win.height;
                 win.width($("body").width()).height($("body").height()).css({top:0,left:0});
             }
         }
