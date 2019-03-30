@@ -27,7 +27,10 @@ function newWindow(title, url) {
                 win.css(JSON.parse(windows[0].attr("data-restore")));
                 windows[0].attr("data-restore","")
             } else {
-                windows[0].attr("data-restore",JSON.stringify(win.position();win.restore.width=win.width();win.restore.height=win.height));
+                var tmp=win.position();
+                tmp.width=win.width();
+                tmp.height=win.height();
+                windows[0].attr("data-restore",JSON.stringify(tmp));
                 win.width($("body").width()).height($("body").height()).css({top:0,left:0});
             }
         }
