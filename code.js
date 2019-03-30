@@ -9,7 +9,7 @@ function newWindow(title, url) {
             cursor: "move"
         });
         windows[currentid].resizable();
-    windows[currentid].children(".close").click(function (e){
+    $($(".win .close")[currentid]).click(function (e){
         this.parent().parent().parent().remove()
-    }.bind(windows[currentid].children(".close")))
+    }.bind($($(".win .close")[currentid]))
 }
