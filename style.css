@@ -56,3 +56,6 @@ body{
 	left: 0;
 	margin: 16px;
 }
+.win{
+	position:absolute !important;
+}
