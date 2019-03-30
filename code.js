@@ -11,12 +11,21 @@ function newWindow(title, url) {
             cursor: "move"
         });
     windows[currentid].resizable();
-    windows[currentid].children(".title").children(".buttons").children(".close").click(
+    var $buttons=windows[currentid].children(".title").children(".buttons");
+    $buttons.children(".close").click(
         function (e){
             this.parent().parent().parent().remove()
         }
         .bind(
-            windows[currentid].children(".title").children(".buttons").children(".close")
+            $buttons.children(".close")
+        )
+    )
+   $buttons.children(".max").click(
+        function (e){
+             this.parent().parent().parent().width($("body").width()).height($("body").height()).css({top:0,left:0})
+        }
+        .bind(
+            $buttons.children(".max")
         )
     )
 }
