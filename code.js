@@ -22,7 +22,14 @@ function newWindow(title, url) {
     )
    $buttons.children(".max").click(
         function (e){
-             this.parent().parent().parent().width($("body").width()).height($("body").height()).css({top:0,left:0})
+            var win=this.parent().parent().parent();
+            if(win.restore){
+                win.css(win.restore);
+                win.restore=null;
+            } else {
+                win.restore=win.positon();win.restore.width=win.width();win.restore.height=win.height;
+                win.width($("body").width()).height($("body").height()).css({top:0,left:0});
+            }
         }
         .bind(
             $buttons.children(".max")
